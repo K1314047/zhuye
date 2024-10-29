@@ -1,0 +1,79 @@
+/* 
+  You can use prefers-color-scheme media query to detect user's color theme. 
+  The easiest and best way to add Dark Mode to your project.
+*/
+:root {
+  --color-text: black;
+  --color-background: white;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-text: white;
+    --color-background: black;
+  }
+}
+
+/*
+  But keep in mind that Dark Mode is not just changing black to white 
+  but handling the contrast. This was just an example.
+  You can also use "light".
+*/
+@media screen and (prefers-color-scheme: light) {
+  :root {
+    --color-text: black;
+    --color-background: white;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, open sans, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+nav {
+  border-bottom: 1px solid rgb(75, 70, 74);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 1em 0.5em;
+  padding-left: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0.5em;
+  border-right: 1px solid rgb(75, 70, 74);
+}
+
+nav li:last-child {
+  float: right;
+}
+
+.last {
+  border: none;
+}
+
+main {
+  column-width: 15em;
+  column-rule: 1px solid rgb(75, 70, 74);
+  margin-bottom: 40px;
+}
+
+section {
+  margin: 0 1em;
+  page-break-inside: avoid; /* Theoretically FF 20+ */
+  break-inside: avoid-column; /* Chrome, Safari, IE 11 */
+  display: table; /* Actually FF 20+ */
+}
+
+h2 {
+  font-size: 1.1em;
+  margin: 0.5em 0;
+}
+
+main ul {
+  list-style-type: none;
+  padding-left: 0;
+}
