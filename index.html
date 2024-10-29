@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <title>Kadriye's主页</title>
+    <meta name="keywords" content="Kadriye，个人主页，网址导航发布页">
+    <meta name="description" itemprop="description" content="向日葵在没有太阳的晚上，还有谁向它伸出手。" />
+    <link rel="shortcut icon" href="./css/img/ico.png">
+    <link rel="stylesheet" href="./css/style.css" media="screen" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="main">
+            <div class="container">
+                <div class="intro">
+                    <div class="user-warp img">
+                        <img src="./css/img/ico.png" alt="缤纷十月">
+                    </div>
+                    <div class="nickname"></div>
+                    <div class="description">
+                        <p>“你惊艳了我的时光，也温柔了我的岁月”</p>
+                    </div>
+                    <div class="zuobiao">
+                        <i class="ico_map"></i>
+                        <span>中国·四川</span>
+                        <span style="margin-left: 10px;">
+                            
+                            <label for="switch_default" class="toggleBtn"></label>
+                        </span>
+                    </div>
+                    <div class="menu navbar-right links">
+                        <a href="https://blog.1314047.xyz" target='_blank'>Blog</a>·
+                        <a href="https://tg.1314047.xyz" target='_blank'>朋友圈</a>·
+                        <a href="https://wiki.1314047.xyz" target='_blank'>知识库</a>·
+                        <a href="https://nav.1314047.xyz" target='_blank'>导航站</a>·
+                        <a href="https://zhaopian.iove.eu.org/" target='_blank'>照片集</a>
+                        <center>
+                            <div id="header"></div>
+                            <div id="main">
+                                <div class="demo">
+                                    <div id="player3" class="aplayer">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
+                    <div style=" line-height: 20px;font-size: 9pt;">
+                        <p>最能让人感到快乐的事，莫过于经过一番努力后，所有东西正慢慢变成你想要的样子！</p>
+                        <p style="margin-left: 8rem;font-size: 8pt;"><small>——Hary</small></p>
+                    </div>
+                    <br>
+                    <center>
+                        <ul id="donateBox" class="list pos-f tr3">
+                            <li id="AliPay">AliPay</li>
+                            <li id="WeChat">WeChat</li>
+                            <li id="QQ">QQ</li>
+                        </ul>
+                        <div id="QRBox" class="pos-f left-100">
+                            <div id="MainBox"></div>
+                        </div>Copyright © 2024 本站托管于<a target="_blank" title="cloudflare" href="https://www.cloudflare.com/"><img src="./css/img/cloudflare.png" style="width: 30px;"></a></br>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"JgUFVQSdLv1pyf01",ck:"JgUFVQSdLv1pyf01"})</script>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <footer id="footer" class="footer">
+            <div class="stars">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="./css/js/jquery.min.js"></script>
+<script src="./css/js/clipboard.min.js"></script>
+<script src="./css/js/APlayer.js"></script>
+<script>
+$(function(){
+    var QRBox = $('#QRBox');
+    var MainBox = $('#MainBox');
+    var AliPayQR = 'https://i.111666.best/image/MKuQrNE0LXK49sPj54xB3U.jpg';
+    var WeChanQR = './css/img/ico.png';
+    var QQQR = "https://img.hary.cc/public/ma-hary-qq.webp";
+
+    function showQR(QR) {
+        if (QR) {
+            MainBox.css('background-image', 'url(' + QR + ')');
+        }
+        $('#DonateText,#donateBox,#github').addClass('blur');
+        QRBox.fadeIn(300, function (argument) {
+            MainBox.addClass('showQR');
+        });
+    }
+
+    $('#donateBox>li').click(function (event) {
+        var thisID = $(this).attr('id');
+        if (thisID === 'AliPay') {
+            showQR(AliPayQR);
+        } else if (thisID === 'WeChat') {
+            showQR(WeChanQR);
+        } else if (thisID === 'QQ') {
+            showQR(QQQR);
+        }
+    });
+
+    MainBox.click(function (event) {
+        MainBox.removeClass('showQR').addClass('hideQR');
+        setTimeout(function (a) {
+            QRBox.fadeOut(300, function (argument) {
+                MainBox.removeClass('hideQR');
+            });
+            $('#DonateText,#donateBox,#github').removeClass('blur');
+        }, 600);
+    });
+
+    let ap3 = new APlayer({
+        element: document.getElementById('player3'),//样式1
+        narrow: false,
+        autoplay: false,
+        showlrc: true,
+        preload: 'auto',
+        music: {
+            title: '喜欢你',
+            author: 'G.E.M.',
+            url: 'https://s3plus.meituan.net/v1/mss_550586ef375b493da4aa79bebdfce4fa/csc-apply-file-web/prod/2024-10-18/727a573e-b632-4cb3-b1b6-4bc9f533be6c.mp3',
+            pic: './css/img/tm.png'
+        }
+    });
+    ap3.init();
+    
+    let _Blog = window._Blog || {};
+    const currentTheme = window.localStorage && window.localStorage.getItem('theme');
+    const isDark = currentTheme === 'dark';
+    if (isDark) {
+        document.getElementById("switch_default").checked = true;
+    } else {
+        document.getElementById("switch_default").checked = false;
+    }
+    _Blog.toggleTheme = function () {
+        if (isDark) {
+            document.getElementsByTagName('body')[0].classList.add('dark-theme');
+        } else {
+            document.getElementsByTagName('body')[0].classList.remove('dark-theme');
+        }
+        document.getElementsByClassName('toggleBtn')[0].addEventListener('click', () => {
+            if (document.getElementsByTagName('body')[0].classList.contains('dark-theme')) {
+                document.getElementsByTagName('body')[0].classList.remove('dark-theme');
+            } else {
+                document.getElementsByTagName('body')[0].classList.add('dark-theme');
+            }
+            window.localStorage && window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
+        })
+    };
+    _Blog.toggleTheme();
+})
+</script>
+</html>
