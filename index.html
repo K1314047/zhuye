@@ -1,208 +1,207 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1,user-scalable=no">
-    <title>Kadriye's主页</title>
-    <meta name="keywords" content="Kadriye，个人主页，网址导航发布页">
-    <meta name="description" itemprop="description" content="向日葵在没有太阳的晚上，还有谁向它伸出手。" />
-    <link rel="shortcut icon" href="./css/img/ico.png">
-    <link rel="stylesheet" href="./css/style.css" media="screen" type="text/css">
-</head>
 
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我的首页</title>
+    <meta name="description" content="这里是介绍">
+    <style>
+        :root {
+    --editor-bg: #1e1e1e;
+    --line-color: #858585;
+    --text-color: #d4d4d4;
+    --keyword-color: #569cd6;
+    --string-color: #ce9178;
+    --comment-color: #6a9955;
+    --number-color: #b5cea8;
+    --font-family: 'Consolas', 'Monaco', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--editor-bg);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.editor {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--editor-bg);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.editor-header {
+    background: #2d2d2d;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.window-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.title-bar {
+    color: #858585;
+    margin-left: 20px;
+    font-size: 0.9em;
+}
+
+.editor-content {
+    padding: 20px;
+    counter-reset: line;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+.line {
+    display: flex;
+    padding: 2px 0;
+    position: relative;
+    min-height: 1.6em;
+}
+
+.line::before {
+    counter-increment: line;
+    content: counter(line);
+    color: var(--line-color);
+    width: 2em;
+    text-align: right;
+    padding-right: 1em;
+    position: absolute;
+}
+
+.line-content {
+    padding-left: 3em;
+    width: 100%;
+}
+
+.indent { margin-left: 2em; }
+.indent-2 { margin-left: 4em; }
+
+.keyword { color: var(--keyword-color); }
+.string { color: var(--string-color); }
+.comment { color: var(--comment-color); }
+.number { color: var(--number-color); }
+
+a {
+    color: #4ec9b0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #66d9cb;
+    text-decoration: underline;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: #fff;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .editor {
+        width: 100%;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .editor-content {
+        padding: 15px 10px;
+    }
+
+    .line-content {
+        padding-left: 2.5em;
+    }
+
+
+    .indent { margin-left: 1.5em; }
+    .indent-2 { margin-left: 3em; }
+
+    .title-bar {
+        font-size: 0.8em;
+        margin-left: 10px;
+    }
+
+    .window-btn {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .editor-content {
+        font-size: 12px;
+    }
+
+    .indent { margin-left: 1em; }
+    .indent-2 { margin-left: 2em; }
+}
+    </style>
+</head>
 <body>
-    <div class="wrapper">
-        <div class="main">
-            <div class="container">
-                <div class="intro">
-                    <div class="user-warp img">
-                        <img src="./css/img/ico.png" alt="缤纷十月">
-                    </div>
-                    <div class="nickname"></div>
-                    <div class="description">
-                        <p>“你惊艳了我的时光，也温柔了我的岁月”</p>
-                    </div>
-                    <div class="zuobiao">
-                        <i class="ico_map"></i>
-                        <span>中国·四川</span>
-                        <span style="margin-left: 10px;">
-                            
-                            <label for="switch_default" class="toggleBtn"></label>
-                        </span>
-                    </div>
-                    <div class="menu navbar-right links">
-                        <a href="https://blog.1314047.xyz" target='_blank'>Blog</a>·
-                        <a href="https://tg.1314047.xyz" target='_blank'>朋友圈</a>·
-                        <a href="https://wiki.1314047.xyz" target='_blank'>知识库</a>·
-                        <a href="https://nav.1314047.xyz" target='_blank'>导航站</a>·
-                        <a href="https://zhaopian.iove.eu.org/" target='_blank'>照片集</a>
-                        <center>
-                            <div id="header"></div>
-                            <div id="main">
-                                <div class="demo">
-                                    <div id="player3" class="aplayer">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </center>
-                    </div>
-                    <div style=" line-height: 20px;font-size: 9pt;">
-                        <p>最能让人感到快乐的事，莫过于经过一番努力后，所有东西正慢慢变成你想要的样子！</p>
-                        <p style="margin-left: 8rem;font-size: 8pt;"><small>——Hary</small></p>
-                    </div>
-                    <br>
-                    <center>
-                        <ul id="donateBox" class="list pos-f tr3">
-                            <li id="AliPay">AliPay</li>
-                            <li id="WeChat">WeChat</li>
-                            <li id="QQ">QQ</li>
-                        </ul>
-                        <div id="QRBox" class="pos-f left-100">
-                            <div id="MainBox"></div>
-                        </div>Copyright © 2024 本站托管于<a target="_blank" title="cloudflare" href="https://www.cloudflare.com/"><img src="./css/img/cloudflare.png" style="width: 30px;"></a></br>
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"JgUFVQSdLv1pyf01",ck:"JgUFVQSdLv1pyf01"})</script>
-                    </center>
-                </div>
-            </div>
+    <div class="editor">
+        <div class="editor-header">
+            <span class="window-btn close"></span>
+            <span class="window-btn minimize"></span>
+            <span class="window-btn maximize"></span>
+            <span class="title-bar">profile.js</span>
         </div>
-        <footer id="footer" class="footer">
-            <div class="stars">
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-            </div>
-        </footer>
+        <div class="editor-content">
+            <div class="line"><div class="line-content"><span class="keyword">const</span> profile = {</div></div>
+            <!--这里是个人资料-->
+            <div class="line"><div class="line-content indent"><span class="keyword">name</span>: <span class="string">"G.Ark"</span>,</div></div>
+            <div class="line"><div class="line-content indent-2"><span class="keyword">title</span>: <span class="string"><a href="https://001100.best" target="_blank">"Web3黑奴探险"</a></span>,</div></div>
+            <div class="line"><div class="line-content indent"><span class="keyword">contact</span>: {</div></div>
+            <div class="line"><div class="line-content indent-2"><span class="keyword">email</span>: <span class="string">"<a href="/">ii@outlook.com.au</a>"</span>,</div></div>
+            <div class="line"><div class="line-content indent">},</div></div>
+            <!--这里是链接-->
+            <div class="line"><div class="line-content indent"><span class="keyword">links</span>: {</div></div>
+            <div class="line"><div class="line-content indent-2"><span class="keyword">blog</span>: <span class="string"><a href="https://blog.001100.best/" target="_blank">"/blog"</a></span>,</div></div>
+            <div class="line"><div class="line-content indent-2"><span class="keyword">Twitter</span>: <span class="string"><a href="https://x.com/ayig61" target="_blank">"@ayig61
+"</a></span>,</div></div>
+            <div class="line"><div class="line-content indent-2"><span class="keyword">Telegam</span>: <span class="string"><a href="https://t.me/ayig61_bot" target="_blank">"@ayig61_bot"</a></span>,</div></div>
+            <div class="line"><div class="line-content indent">},</div></div>
+            <div class="line"><div class="line-content indent"><span class="keyword">copyright</span>: <span class="string">2024-<span id="year">2025</span> "</span></div></div>
+            <div class="line"><div class="line-content">}<span class="cursor"></span></div></div>
+        </div>
     </div>
 </body>
-<script src="./css/js/jquery.min.js"></script>
-<script src="./css/js/clipboard.min.js"></script>
-<script src="./css/js/APlayer.js"></script>
-<script>
-$(function(){
-    var QRBox = $('#QRBox');
-    var MainBox = $('#MainBox');
-    var AliPayQR = 'https://i.111666.best/image/MKuQrNE0LXK49sPj54xB3U.jpg';
-    var WeChanQR = './css/img/ico.png';
-    var QQQR = "https://img.hary.cc/public/ma-hary-qq.webp";
-
-    function showQR(QR) {
-        if (QR) {
-            MainBox.css('background-image', 'url(' + QR + ')');
-        }
-        $('#DonateText,#donateBox,#github').addClass('blur');
-        QRBox.fadeIn(300, function (argument) {
-            MainBox.addClass('showQR');
-        });
-    }
-
-    $('#donateBox>li').click(function (event) {
-        var thisID = $(this).attr('id');
-        if (thisID === 'AliPay') {
-            showQR(AliPayQR);
-        } else if (thisID === 'WeChat') {
-            showQR(WeChanQR);
-        } else if (thisID === 'QQ') {
-            showQR(QQQR);
-        }
-    });
-
-    MainBox.click(function (event) {
-        MainBox.removeClass('showQR').addClass('hideQR');
-        setTimeout(function (a) {
-            QRBox.fadeOut(300, function (argument) {
-                MainBox.removeClass('hideQR');
-            });
-            $('#DonateText,#donateBox,#github').removeClass('blur');
-        }, 600);
-    });
-
-    let ap3 = new APlayer({
-        element: document.getElementById('player3'),//样式1
-        narrow: false,
-        autoplay: false,
-        showlrc: true,
-        preload: 'auto',
-        music: {
-            title: '喜欢你',
-            author: 'G.E.M.',
-            url: 'https://s3plus.meituan.net/v1/mss_550586ef375b493da4aa79bebdfce4fa/csc-apply-file-web/prod/2024-10-18/727a573e-b632-4cb3-b1b6-4bc9f533be6c.mp3',
-            pic: './css/img/tm.png'
-        }
-    });
-    ap3.init();
-    
-    let _Blog = window._Blog || {};
-    const currentTheme = window.localStorage && window.localStorage.getItem('theme');
-    const isDark = currentTheme === 'dark';
-    if (isDark) {
-        document.getElementById("switch_default").checked = true;
-    } else {
-        document.getElementById("switch_default").checked = false;
-    }
-    _Blog.toggleTheme = function () {
-        if (isDark) {
-            document.getElementsByTagName('body')[0].classList.add('dark-theme');
-        } else {
-            document.getElementsByTagName('body')[0].classList.remove('dark-theme');
-        }
-        document.getElementsByClassName('toggleBtn')[0].addEventListener('click', () => {
-            if (document.getElementsByTagName('body')[0].classList.contains('dark-theme')) {
-                document.getElementsByTagName('body')[0].classList.remove('dark-theme');
-            } else {
-                document.getElementsByTagName('body')[0].classList.add('dark-theme');
-            }
-            window.localStorage && window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
-        })
-    };
-    _Blog.toggleTheme();
-})
-</script>
 </html>
